@@ -1,4 +1,4 @@
-// Destinations Data
+
 const destinations = [
     {
         id: 1,
@@ -42,7 +42,7 @@ const destinations = [
     }
 ];
 
-// Restaurants Data
+
 const restaurants = [
     {
         id: 1,
@@ -91,7 +91,7 @@ const restaurants = [
     }
 ];
 
-// Resorts Data
+
 const resorts = [
     {
         id: 1,
@@ -139,7 +139,7 @@ let selectedDestinations = [];
 let selectedRestaurants = [];
 let selectedResort = null;
 
-// Render Destinations
+
 function renderDestinations() {
     const grid = document.getElementById('destinationsGrid');
     if (!grid) return;
@@ -163,7 +163,7 @@ function renderDestinations() {
     });
 }
 
-// Render Restaurants
+
 function renderRestaurants() {
     const grid = document.getElementById('restaurantsGrid');
     if (!grid) return;
@@ -188,7 +188,7 @@ function renderRestaurants() {
     });
 }
 
-// Render Resorts
+
 function renderResorts() {
     const grid = document.getElementById('resortsGrid');
     if (!grid) return;
@@ -212,7 +212,7 @@ function renderResorts() {
     });
 }
 
-// Toggle Destination Selection
+
 function toggleDestination(destinationId) {
     const destination = destinations.find(d => d.id === destinationId);
     const index = selectedDestinations.findIndex(d => d.id === destinationId);
@@ -228,7 +228,7 @@ function toggleDestination(destinationId) {
     renderDestinations();
 }
 
-// Toggle Restaurant Selection
+
 function toggleRestaurant(restaurantId) {
     const restaurant = restaurants.find(r => r.id === restaurantId);
     const index = selectedRestaurants.findIndex(r => r.id === restaurantId);
@@ -244,7 +244,7 @@ function toggleRestaurant(restaurantId) {
     renderRestaurants();
 }
 
-// Select Resort
+
 function selectResort(resortId) {
     const resort = resorts.find(r => r.id === resortId);
     
@@ -283,7 +283,7 @@ function updateSelectedDestinationsList() {
     });
 }
 
-// Update Selected Restaurants List
+
 function updateSelectedRestaurantsList() {
     const container = document.getElementById('selectedRestaurantsList');
     if (!container) return;
@@ -307,7 +307,7 @@ function updateSelectedRestaurantsList() {
     });
 }
 
-// Update Selected Resort List
+
 function updateSelectedResortList() {
     const container = document.getElementById('selectedResortList');
     if (!container) return;
@@ -332,7 +332,7 @@ function updateSelectedResortList() {
     }
 }
 
-// Update Price Breakdown
+
 function updatePriceBreakdown() {
     const destinationsTotal = selectedDestinations.reduce((sum, dest) => sum + dest.price, 0);
     const restaurantsTotal = selectedRestaurants.reduce((sum, rest) => sum + rest.price, 0);
@@ -350,7 +350,7 @@ function updatePriceBreakdown() {
     if (totalPriceElem) totalPriceElem.textContent = `₱${total.toLocaleString()}`;
 }
 
-// Handle Form Submission
+
 function handleBookingSubmit(event) {
     event.preventDefault();
     
@@ -394,7 +394,7 @@ function handleBookingSubmit(event) {
     
     showModal();
     
-    // Reset form and selections
+
     document.getElementById('bookingForm')?.reset();
     selectedDestinations = [];
     selectedRestaurants = [];
@@ -408,7 +408,7 @@ function handleBookingSubmit(event) {
     renderResorts();
 }
 
-// Show Modal
+
 function showModal() {
     const modal = document.getElementById('successModal');
     if (modal) {
@@ -416,7 +416,6 @@ function showModal() {
     }
 }
 
-// Close Modal
 function closeModal() {
     const modal = document.getElementById('successModal');
     if (modal) {
@@ -436,7 +435,7 @@ function initMobileMenu() {
     }
 }
 
-// Set minimum dates for check-in and check-out
+
 function setMinDates() {
     const today = new Date().toISOString().split('T')[0];
     const checkInInput = document.getElementById('checkIn');
@@ -459,7 +458,7 @@ function setMinDates() {
     }
 }
 
-// Initialize page
+
 document.addEventListener('DOMContentLoaded', () => {
     renderDestinations();
     renderRestaurants();
