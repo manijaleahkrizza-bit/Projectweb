@@ -42,6 +42,55 @@ const destinations = [
     }
 ];
 
+// Restaurants Data
+const restaurants = [
+    {
+        id: 1,
+        name: "Gerarda's Place",
+        description: "Famous for authentic Filipino cuisine and traditional Boholano dishes",
+        price: 800,
+        cuisine: "Filipino",
+        location: "Tagbilaran City",
+        image: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        id: 2,
+        name: "The Buzzz Cafe",
+        description: "Organic cafe known for coffee, ice cream, and native delicacies",
+        price: 500,
+        cuisine: "Cafe, Organic",
+        location: "Panglao Island",
+        image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        id: 3,
+        name: "Mist Lounge & Restaurant",
+        description: "Rooftop dining with stunning sea views and international cuisine",
+        price: 1200,
+        cuisine: "International, Asian",
+        location: "Panglao Island",
+        image: "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        id: 4,
+        name: "La Veranda Restaurant",
+        description: "Italian-inspired dishes with fresh seafood and local ingredients",
+        price: 900,
+        cuisine: "Italian, Seafood",
+        location: "Panglao Island",
+        image: "https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600"
+    },
+    {
+        id: 5,
+        name: "Pearl Restaurant at Linaw Beach",
+        description: "Fine dining beachfront with European and Asian fusion cuisine",
+        price: 1500,
+        cuisine: "Fusion, Seafood",
+        location: "Panglao Island",
+        image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600"
+    }
+];
+
 // Resorts Data
 const resorts = [
     {
@@ -87,6 +136,7 @@ const resorts = [
 ];
 
 let selectedDestinations = [];
+let selectedRestaurants = [];
 let selectedResort = null;
 
 // Render Destinations
@@ -108,9 +158,33 @@ function renderDestinations() {
         </div>
     `).join('');
     
-    // Add click event listeners
     document.querySelectorAll('.destination-card').forEach(card => {
         card.addEventListener('click', () => toggleDestination(parseInt(card.dataset.id)));
+    });
+}
+
+// Render Restaurants
+function renderRestaurants() {
+    const grid = document.getElementById('restaurantsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = restaurants.map(rest => `
+        <div class="restaurant-card" data-id="${rest.id}" data-type="restaurant">
+            <div class="card-image" style="background-image: url('${rest.image}')">
+                ${selectedRestaurants.some(r => r.id === rest.id) ? '<div class="selected-badge"><i class="fas fa-check"></i></div>' : ''}
+            </div>
+            <div class="card-content">
+                <h3>${rest.name}</h3>
+                <p>${rest.description}</p>
+                <div class="cuisine"><i class="fas fa-utensil-spoon"></i> ${rest.cuisine}</div>
+                <div class="price">₱${rest.price.toLocaleString()} <small>for 2 pax</small></div>
+                <div class="location"><i class="fas fa-map-pin"></i> ${rest.location}</div>
+            </div>
+        </div>
+    `).join('');
+    
+    document.querySelectorAll('.restaurant-card').forEach(card => {
+        card.addEventListener('click', () => toggleRestaurant(parseInt(card.dataset.id)));
     });
 }
 
@@ -133,7 +207,6 @@ function renderResorts() {
         </div>
     `).join('');
     
-    // Add click event listeners
     document.querySelectorAll('.resort-card').forEach(card => {
         card.addEventListener('click', () => selectResort(parseInt(card.dataset.id)));
     });
@@ -153,6 +226,22 @@ function toggleDestination(destinationId) {
     updateSelectedDestinationsList();
     updatePriceBreakdown();
     renderDestinations();
+}
+
+// Toggle Restaurant Selection
+function toggleRestaurant(restaurantId) {
+    const restaurant = restaurants.find(r => r.id === restaurantId);
+    const index = selectedRestaurants.findIndex(r => r.id === restaurantId);
+    
+    if (index === -1) {
+        selectedRestaurants.push(restaurant);
+    } else {
+        selectedRestaurants.splice(index, 1);
+    }
+    
+    updateSelectedRestaurantsList();
+    updatePriceBreakdown();
+    renderRestaurants();
 }
 
 // Select Resort
@@ -189,9 +278,32 @@ function updateSelectedDestinationsList() {
         </div>
     `).join('');
     
-    // Add remove event listeners
     document.querySelectorAll('.remove-btn[data-type="destination"]').forEach(btn => {
         btn.addEventListener('click', () => toggleDestination(parseInt(btn.dataset.id)));
+    });
+}
+
+// Update Selected Restaurants List
+function updateSelectedRestaurantsList() {
+    const container = document.getElementById('selectedRestaurantsList');
+    if (!container) return;
+    
+    if (selectedRestaurants.length === 0) {
+        container.innerHTML = '<p class="empty-message">No restaurants selected yet</p>';
+        return;
+    }
+    
+    container.innerHTML = selectedRestaurants.map(rest => `
+        <div class="selected-item">
+            <span><strong>${rest.name}</strong> - ₱${rest.price.toLocaleString()}</span>
+            <button class="remove-btn" data-id="${rest.id}" data-type="restaurant">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `).join('');
+    
+    document.querySelectorAll('.remove-btn[data-type="restaurant"]').forEach(btn => {
+        btn.addEventListener('click', () => toggleRestaurant(parseInt(btn.dataset.id)));
     });
 }
 
@@ -214,7 +326,6 @@ function updateSelectedResortList() {
         </div>
     `;
     
-    // Add remove event listener
     const removeBtn = document.querySelector('.remove-btn[data-type="resort"]');
     if (removeBtn) {
         removeBtn.addEventListener('click', () => selectResort(selectedResort.id));
@@ -224,14 +335,17 @@ function updateSelectedResortList() {
 // Update Price Breakdown
 function updatePriceBreakdown() {
     const destinationsTotal = selectedDestinations.reduce((sum, dest) => sum + dest.price, 0);
+    const restaurantsTotal = selectedRestaurants.reduce((sum, rest) => sum + rest.price, 0);
     const resortTotal = selectedResort ? selectedResort.price : 0;
-    const total = destinationsTotal + resortTotal;
+    const total = destinationsTotal + restaurantsTotal + resortTotal;
     
     const destinationsPriceElem = document.getElementById('destinationsPrice');
+    const restaurantsPriceElem = document.getElementById('restaurantsPrice');
     const resortPriceElem = document.getElementById('resortPrice');
     const totalPriceElem = document.getElementById('totalPrice');
     
     if (destinationsPriceElem) destinationsPriceElem.textContent = `₱${destinationsTotal.toLocaleString()}`;
+    if (restaurantsPriceElem) restaurantsPriceElem.textContent = `₱${restaurantsTotal.toLocaleString()}`;
     if (resortPriceElem) resortPriceElem.textContent = `₱${resortTotal.toLocaleString()}`;
     if (totalPriceElem) totalPriceElem.textContent = `₱${total.toLocaleString()}`;
 }
@@ -253,12 +367,14 @@ function handleBookingSubmit(event) {
         return;
     }
     
-    if (selectedDestinations.length === 0 && !selectedResort) {
-        alert('Please select at least one destination or a resort to continue');
+    if (selectedDestinations.length === 0 && selectedRestaurants.length === 0 && !selectedResort) {
+        alert('Please select at least one destination, restaurant, or a resort to continue');
         return;
     }
     
-    const totalPrice = selectedDestinations.reduce((sum, dest) => sum + dest.price, 0) + (selectedResort ? selectedResort.price : 0);
+    const totalPrice = selectedDestinations.reduce((sum, dest) => sum + dest.price, 0) + 
+                      selectedRestaurants.reduce((sum, rest) => sum + rest.price, 0) + 
+                      (selectedResort ? selectedResort.price : 0);
     
     const bookingData = {
         fullName,
@@ -269,6 +385,7 @@ function handleBookingSubmit(event) {
         checkOut,
         specialRequests,
         selectedDestinations: selectedDestinations.map(d => ({ name: d.name, price: d.price })),
+        selectedRestaurants: selectedRestaurants.map(r => ({ name: r.name, price: r.price })),
         selectedResort: selectedResort ? { name: selectedResort.name, price: selectedResort.price } : null,
         totalPrice
     };
@@ -280,11 +397,14 @@ function handleBookingSubmit(event) {
     // Reset form and selections
     document.getElementById('bookingForm')?.reset();
     selectedDestinations = [];
+    selectedRestaurants = [];
     selectedResort = null;
     updateSelectedDestinationsList();
+    updateSelectedRestaurantsList();
     updateSelectedResortList();
     updatePriceBreakdown();
     renderDestinations();
+    renderRestaurants();
     renderResorts();
 }
 
@@ -342,6 +462,7 @@ function setMinDates() {
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     renderDestinations();
+    renderRestaurants();
     renderResorts();
     setMinDates();
     initMobileMenu();
