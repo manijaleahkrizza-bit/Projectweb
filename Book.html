@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Bohol Adventure | Resorts & Destinations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <i class="fas fa-umbrella-beach"></i>
+                <span>BOHOL <span class="light">PARADISE</span></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#resorts">Resorts</a></li>
+                    <li><a href="#booking-section">Book Now</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="booking-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <h1>Plan Your <span class="accent">Bohol</span> Getaway</h1>
+                <p>Choose your favorite destinations and resorts. Create your perfect island adventure!</p>
+            </div>
+        </section>
+
+        <section id="destinations" class="selection-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Explore</span>
+                    <h2>5 Must-Visit <span class="accent">Destinations</span></h2>
+                    <p>Select the places you want to visit in Bohol</p>
+                </div>
+                <div class="cards-grid" id="destinationsGrid"></div>
+            </div>
+        </section>
+
+        <section id="resorts" class="selection-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Stay in Style</span>
+                    <h2>5 Premium <span class="accent">Resorts</span></h2>
+                    <p>Choose where you want to stay during your Bohol adventure</p>
+                </div>
+                <div class="cards-grid" id="resortsGrid"></div>
+            </div>
+        </section>
+
+        <section id="booking-section" class="booking-summary">
+            <div class="container">
+                <div class="summary-wrapper">
+                    <div class="summary-header">
+                        <h2><i class="fas fa-suitcase-rolling"></i> Your Booking Summary</h2>
+                        <p>Review your selections and complete your booking</p>
+                    </div>
+                    
+                    <div class="summary-content">
+                        <div class="selected-items">
+                            <div class="selected-destinations">
+                                <h3><i class="fas fa-map-marker-alt"></i> Selected Destinations</h3>
+                                <div id="selectedDestinationsList" class="selected-list">
+                                    <p class="empty-message">No destinations selected yet</p>
+                                </div>
+                            </div>
+                            
+                            <div class="selected-resorts">
+                                <h3><i class="fas fa-hotel"></i> Selected Resort</h3>
+                                <div id="selectedResortList" class="selected-list">
+                                    <p class="empty-message">No resort selected yet</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-breakdown">
+                            <h3>Price Breakdown</h3>
+                            <div class="price-item">
+                                <span>Destinations (per location):</span>
+                                <span id="destinationsPrice">₱0</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Resort Package:</span>
+                                <span id="resortPrice">₱0</span>
+                            </div>
+                            <div class="price-item total">
+                                <span>Total Package Price:</span>
+                                <span id="totalPrice">₱0</span>
+                            </div>
+                        </div>
+                        
+                        <form id="bookingForm" class="booking-form">
+                            <h3><i class="fas fa-user-check"></i> Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" required placeholder="Juan Dela Cruz">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required placeholder="juan@example.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" required placeholder="0912 345 6789">
+                                </div>
+                                <div class="form-group">
+                                    <label for="travelers">Number of Travelers *</label>
+                                    <input type="number" id="travelers" min="1" value="2" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="checkIn">Check-in Date *</label>
+                                    <input type="date" id="checkIn" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="checkOut">Check-out Date *</label>
+                                    <input type="date" id="checkOut" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="specialRequests">Special Requests</label>
+                                <textarea id="specialRequests" rows="3" placeholder="Any dietary restrictions, room preferences, or special accommodations?"></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit" id="submitBooking">
+                                <i class="fas fa-check-circle"></i> Confirm Booking
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-umbrella-beach"></i> Bohol Paradise
+                </div>
+                <p>Your gateway to the enchanting island of Bohol, where nature and heritage create unforgettable memories.</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> manijaleahkrizza@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0912 291 9554</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bohol Paradise — Discover the Heart of the Philippines</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-check-circle modal-icon"></i>
+            <h3>Booking Confirmed!</h3>
+            <p>Thank you for booking your Bohol adventure! A confirmation email has been sent to your email address. Our travel specialist will contact you within 24 hours.</p>
+            <button class="modal-close-btn">OK, Got it!</button>
+        </div>
+    </div>
+
+    <script src="booking.js"></script>
+</body>
+</html>

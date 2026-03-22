@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Bohol Paradise | Discover the Jewel of the Philippines</title>
+    <!-- Google Fonts + Font Awesome (icons) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- External CSS (separate file) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- STICKY NAVIGATION -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <i class="fas fa-umbrella-beach"></i> 
+                <span>BOHOL <span class="light">PARADISE</span></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#attractions">Attractions</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+<button class="book-nav-btn" id="navBookBtn" onclick="window.location.href='Book.html'">
+    <i class="fas fa-calendar-check"></i> Book Now
+</button>
+<div class="menu-toggle" id="mobileMenuToggle">
+    <i class="fas fa-bars"></i>
+</div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <span class="hero-tag">#EscapeToBohol</span>
+                <h1>Where Nature<br>Meets Wonder</h1>
+                <p>Discover the enchanting Chocolate Hills, gentle tarsiers, pristine white beaches, and the warmest Filipino hospitality. Your ultimate tropical adventure starts here.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary book-now-hero"><i class="fas fa-map-marked-alt"></i> Plan Your Trip</button>
+                    <button class="btn-outline explore-btn"><i class="fas fa-play-circle"></i> Explore Wonders</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATTRACTIONS SECTION (What's in Bohol) -->
+        <section id="attractions" class="attractions">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Must-See Gems</span>
+                    <h2>What's in <span class="accent">Bohol?</span></h2>
+                    <p>From iconic geological marvels to wildlife encounters — experience the heart of the Visayas.</p>
+                </div>
+                <div class="cards-grid">
+                    <!-- Card 1: Chocolate Hills -->
+                    <div class="attraction-card">
+                        <div class="card-image" style="background-image: url('TAL-chocolate-hills-CHOCLATEHILLS0325-691d3af041ec43499e1f7b7b1ba2abf3.jpg');"></div>
+                        <div class="card-content">
+                            <i class="fas fa-mountain card-icon"></i>
+                            <h3>Chocolate Hills</h3>
+                            <p>Over 1,200 symmetrical hills that turn chocolate-brown in summer — a UNESCO world heritage contender and the Philippines' national geological monument.</p>
+                            <div class="location"><i class="fas fa-map-pin"></i> Carmen, Bohol</div>
+                        </div>
+                    </div>
+                    <!-- Card 2: Tarsier Sanctuary -->
+                    <div class="attraction-card">
+                        <div class="card-image" style="background-image: url('https://images.pexels.com/photos/1271710/pexels-photo-1271710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+                        <div class="card-content">
+                            <i class="fas fa-eye card-icon"></i>
+                            <h3>Philippine Tarsier</h3>
+                            <p>One of the world's smallest primates, with enormous eyes. Visit the conservation sanctuary and witness these gentle, nocturnal creatures up close.</p>
+                            <div class="location"><i class="fas fa-map-pin"></i> Corella, Bohol</div>
+                        </div>
+                    </div>
+                    <!-- Card 3: Loboc River -->
+                    <div class="attraction-card">
+                        <div class="card-image" style="background-image: url('https://images.pexels.com/photos/1430675/pexels-photo-1430675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+                        <div class="card-content">
+                            <i class="fas fa-water card-icon"></i>
+                            <h3>Loboc River Cruise</h3>
+                            <p>Floating restaurant adventure with lush jungle backdrop, live cultural shows, and a refreshing dip at Busay Falls.</p>
+                            <div class="location"><i class="fas fa-map-pin"></i> Loboc, Bohol</div>
+                        </div>
+                    </div>
+                    <!-- Card 4: Panglao Beach -->
+                    <div class="attraction-card">
+                        <div class="card-image" style="background-image: url('https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+                        <div class="card-content">
+                            <i class="fas fa-umbrella-beach card-icon"></i>
+                            <h3>Alona Beach</h3>
+                            <p>Powdery white sand, crystal-clear turquoise waters, world-class diving spots & vibrant nightlife — the heart of island relaxation.</p>
+                            <div class="location"><i class="fas fa-map-pin"></i> Panglao Island</div>
+                        </div>
+                    </div>
+                    <!-- Card 5: Blood Compact Site -->
+                    <div class="attraction-card">
+                        <div class="card-image" style="background-image: url('sandugo\ shrine.jpg');"></div>
+                        <div class="card-content">
+                            <i class="fas fa-handshake card-icon"></i>
+                            <h3>Blood Compact Shrine</h3>
+                            <p>Historic Sandugo between Spanish explorer Legazpi and Datu Sikatuna — symbolizes friendship and Filipino heritage.</p>
+                            <div class="location"><i class="fas fa-map-pin"></i> Tagbilaran City</div>
+                        </div>
+                    </div>
+                    <!-- Card 6: Hinagdanan Cave -->
+                    <div class="attraction-card">
+                        <div class="card-image" style="background-image: url('https://images.pexels.com/photos/189349/pexels-photo-189349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');"></div>
+                        <div class="card-content">
+                            <i class="fas fa-water card-icon"></i>
+                            <h3>Hinagdanan Cave</h3>
+                            <p>Stunning underground cavern with a natural lagoon, stunning stalactites, and ethereal lighting for nature lovers.</p>
+                            <div class="location"><i class="fas fa-map-pin"></i> Dauis, Panglao</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- EXPERIENCE / ADVENTURE PREVIEW SECTION - UPDATED WITH VIDEO -->
+<section id="experience" class="experience">
+    <div class="container">
+        <div class="exp-flex">
+            <div class="exp-text">
+                <span class="section-subtitle">Adventure Awaits</span>
+                <h2>Beyond Ordinary <br>Island Getaway</h2>
+                <p>Zip-line over the Chocolate Hills, go dolphin watching in the early morning, explore centuries-old churches, or dive into the mesmerizing Balicasag marine sanctuary. Every moment in Bohol feels like a postcard.</p>
+                <ul class="exp-list">
+                    <li><i class="fas fa-check-circle"></i> ATV tours — Chocolate Hills base</li>
+                    <li><i class="fas fa-check-circle"></i> Firefly watching at Abatan River</li>
+                    <li><i class="fas fa-check-circle"></i> Danao Adventure Park (plunge & zipline)</li>
+                    <li><i class="fas fa-check-circle"></i> Whale & dolphin watching</li>
+                </ul>
+                <button class="btn-primary book-now-exp"><i class="fas fa-ticket-alt"></i> Book Your Adventure</button>
+            </div>
+            <div class="exp-gallery">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline class="adventure-video">
+                        <source src="LOVE Bohol.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-caption">
+                        <i class="fas fa-play-circle"></i> Experience Bohol's Paradise
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        
+
+<!-- BOOK NOW SECTION / CTA - UPDATED WITH GOOGLE MAPS AND CONTACT INFO -->
+<section id="contact" class="booking-cta">
+    <div class="container booking-container">
+        <div class="booking-card-glow">
+            <h2>Ready to explore <span class="accent-text">Bohol?</span></h2>
+            <p>Let’s craft your perfect island itinerary — from eco-adventures to luxury beachfront stays. Secure your slot now!</p>
+            <button id="mainBookNowBtn" class="btn-large-book"><i class="fas fa-hotel"></i> Book Now — Start Your Adventure</button>
+            <div class="small-note">✓ Free cancellation • ✓ Best price guarantee • ✓ 24/7 local support</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT INFORMATION SECTION WITH GOOGLE MAPS -->
+<section class="contact-info-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-details">
+                <div class="section-header text-left">
+                    <span class="section-subtitle">Get In Touch</span>
+                    <h2>For More Information<br>Just Contact Us</h2>
+                    <p>Have questions about your Bohol adventure? Reach out to our travel specialists and let us help you plan the perfect getaway.</p>
+                </div>
+                
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Email Us</h4>
+                            <a href="mailto:manijaleahkrizza@gmail.com">manijaleahkrizza@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Call or Text</h4>
+                            <a href="tel:+639122919554">0912 291 9554</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-facebook-messenger"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Messenger</h4>
+                            <p>@boholparadise</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>Instagram</h4>
+                            <p>@bohol_adventures</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-hours">
+                    <h4><i class="far fa-clock"></i> Business Hours</h4>
+                    <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
+                    <p>Saturday - Sunday: 9:00 AM - 6:00 PM</p>
+                    <p>24/7 Emergency Support Available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><i class="fas fa-umbrella-beach"></i> Bohol Paradise</div>
+                    <p>Your gateway to the enchanting island of Bohol, where nature and heritage create unforgettable memories.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#attractions">Attractions</a></li>
+                        <li><a href="#experience">Adventure Packages</a></li>
+                        <li><a href="#">Travel Guide</a></li>
+                        <li><a href="#">Events & Festivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Travel Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Get exclusive deals & Bohol travel inspiration.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email" id="newsEmail">
+                        <button id="newsBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bohol Paradise — Discover the Heart of the Philippines. All imagery inspired by real beauty.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Simple modal for booking alert simulation (JavaScript driven) -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <i class="fas fa-check-circle modal-icon"></i>
+            <h3>Adventure Awaits in Bohol!</h3>
+            <p>Thank you for choosing Bohol Paradise. Our travel specialist will contact you within 24 hours to craft your dream itinerary. <br> <strong>#ExperienceBohol</strong></p>
+            <button class="modal-close-btn">Awesome, Let's Go!</button>
+        </div>
+    </div>
+
+    <!-- Separate JavaScript File (external) -->
+    <script src="script.js"></script>
+</body>
+</html>
