@@ -551,4 +551,64 @@ footer {
     .summary-content {
         padding: 24px;
     }
+    /* Additional styles for restaurant cards */
+.restaurant-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+}
+
+.restaurant-card.selected {
+    border-color: #e67e22;
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.2);
+}
+
+.cuisine {
+    font-size: 0.85rem;
+    color: #e67e22;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.selected-restaurants {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.selected-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #f0e9d8;
+}
+
+@media (max-width: 992px) {
+    .selected-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .selected-items {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
 }
