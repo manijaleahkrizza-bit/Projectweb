@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Bohol Adventure | Resorts & Destinations</title>
+    <title>Book Your Bohol Adventure | Resorts, Destinations & Restaurants</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -21,6 +21,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#restaurants">Restaurants</a></li>
                     <li><a href="#resorts">Resorts</a></li>
                     <li><a href="#booking-section">Book Now</a></li>
                 </ul>
@@ -36,7 +37,7 @@
             <div class="hero-overlay"></div>
             <div class="hero-content container">
                 <h1>Plan Your <span class="accent">Bohol</span> Getaway</h1>
-                <p>Choose your favorite destinations and resorts. Create your perfect island adventure!</p>
+                <p>Choose your favorite destinations, restaurants, and resorts. Create your perfect island adventure!</p>
             </div>
         </section>
 
@@ -48,6 +49,17 @@
                     <p>Select the places you want to visit in Bohol</p>
                 </div>
                 <div class="cards-grid" id="destinationsGrid"></div>
+            </div>
+        </section>
+
+        <section id="restaurants" class="selection-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Dine in Style</span>
+                    <h2>5 Best <span class="accent">Restaurants</span></h2>
+                    <p>Experience the authentic flavors of Bohol</p>
+                </div>
+                <div class="cards-grid" id="restaurantsGrid"></div>
             </div>
         </section>
 
@@ -79,6 +91,13 @@
                                 </div>
                             </div>
                             
+                            <div class="selected-restaurants">
+                                <h3><i class="fas fa-utensils"></i> Selected Restaurants</h3>
+                                <div id="selectedRestaurantsList" class="selected-list">
+                                    <p class="empty-message">No restaurants selected yet</p>
+                                </div>
+                            </div>
+                            
                             <div class="selected-resorts">
                                 <h3><i class="fas fa-hotel"></i> Selected Resort</h3>
                                 <div id="selectedResortList" class="selected-list">
@@ -92,6 +111,10 @@
                             <div class="price-item">
                                 <span>Destinations (per location):</span>
                                 <span id="destinationsPrice">₱0</span>
+                            </div>
+                            <div class="price-item">
+                                <span>Restaurants (per booking):</span>
+                                <span id="restaurantsPrice">₱0</span>
                             </div>
                             <div class="price-item">
                                 <span>Resort Package:</span>
